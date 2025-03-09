@@ -1,0 +1,56 @@
+// forEach() method executes a provided function once for each array element
+// Syntax: array.forEach(function(currentValue, index, array), thisValue)
+
+// Example 1: Basic forEach usage
+const fruits = ['apple', 'banana', 'cherry'];
+fruits.forEach(function(fruit) {
+    console.log(fruit);
+});
+
+// Example 2: Using arrow function and index parameter
+const numbers = [1, 2, 3, 4, 5];
+numbers.forEach((num, index) => {
+    console.log(`Index ${index}: ${num}`);
+});
+
+// Example 3: Modifying array elements (note: original array is modified)
+const scores = [75, 80, 85];
+scores.forEach((score, index, array) => {
+    array[index] = score + 5;
+});
+
+// Example 4: Using thisValue parameter
+const person = {
+    name: 'John',
+    greet: function(friend) {
+        console.log(`${this.name} says hello to ${friend}`);
+    }
+};
+
+['Alice', 'Bob', 'Charlie'].forEach(person.greet, person);
+
+// Example 5: Error handling in forEach
+const mixedArray = [1, 2, null, 4, undefined];
+mixedArray.forEach(item => {
+    try {
+        console.log(item.toString());
+    } catch(error) {
+        console.log('Error processing item:', error.message);
+    }
+});
+
+// Example 6: Breaking forEach is not possible
+// Note: forEach will always execute for all elements (use for...of if you need to break)
+const items = [1, 2, 3, 4, 5];
+items.forEach(item => {
+    if(item === 3) {
+        // return or break won't stop the iteration
+        return;
+    }
+    console.log(item);
+});
+// forEach() always returns undefined
+// Example to demonstrate return value:
+const numbers = [1, 2, 3];
+const result = numbers.forEach(num => console.log(num));
+console.log(result); // undefined

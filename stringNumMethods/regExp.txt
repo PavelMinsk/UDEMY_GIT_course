@@ -1,0 +1,101 @@
+
+// Regular expressions (RegExp) in JavaScript - Examples and explanations
+
+// Basic RegExp literal syntax
+let pattern1 = /hello/;
+let pattern2 = new RegExp('hello');
+
+// Simple pattern matching
+let str = "hello world";
+// Test if pattern exists in string
+let hasMatch = /hello/.test(str); // Returns true
+
+// Pattern modifiers/flags
+// i - case insensitive
+let caseInsensitive = /hello/i.test('HELLO'); // true
+
+// g - global match (find all matches rather than stopping after first match)
+let globalMatch = 'hi hi hi'.match(/hi/g); // Returns ['hi', 'hi', 'hi']
+
+// Character classes
+// [abc] - matches any character from the set
+let vowels = 'hello'.match(/[aeiou]/g); // Returns ['e','o']
+
+// [^abc] - matches any character NOT in the set
+let nonDigits = '123abc'.match(/[^0-9]/g); // Returns ['a','b','c']
+
+// Quantifiers
+// + matches 1 or more occurrences
+let oneOrMore = 'hellooo'.match(/o+/); // Returns ['ooo']
+
+// * matches 0 or more occurrences
+let zeroOrMore = 'hel'.match(/x*/); // Returns ['']
+
+// ? matches 0 or 1 occurrence
+let optional = 'color'.match(/colou?r/); // Matches both 'color' and 'colour'
+
+// Special characters
+// \d - matches any digit
+let digits = '123abc456'.match(/\d+/g); // Returns ['123', '456']
+
+// \w - matches word characters (letters, numbers, underscore)
+let words = 'hi_123 there!'.match(/\w+/g); // Returns ['hi_123', 'there']
+
+// \s - matches whitespace
+let spaces = 'hi there'.match(/\s/g); // Returns [' ']
+
+// Anchors
+// ^ matches start of string
+let startsWith = /^hello/.test('hello world'); // true
+
+// $ matches end of string
+let endsWith = /world$/.test('hello world'); // true
+
+// Practical examples
+// Email validation
+let emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+let isValidEmail = emailPattern.test('user@example.com'); // true
+
+// Phone number format (###-###-####)
+let phonePattern = /^\d{3}-\d{3}-\d{4}$/;
+let isValidPhone = phonePattern.test('123-456-7890'); // true
+
+// Extract URLs from text
+let urlPattern = /https?:\/\/[^\s]+/g;
+let text = 'Visit https://example.com and http://test.com';
+let urls = text.match(urlPattern); // Returns ['https://example.com', 'http://test.com']
+
+// Password strength check (at least 8 chars, 1 uppercase, 1 lowercase, 1 number)
+let passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
+let isStrongPassword = passwordPattern.test('Password123'); // true
+
+// String methods that work with RegExp
+let str = "example text";
+
+// .match() - Returns an array of matches
+str.match(/pattern/);
+
+// .replace() - Replaces matches with new text
+str.replace(/pattern/, 'replacement');
+
+// .replaceAll() - Replaces all matches with new text (requires global flag)
+str.replaceAll(/pattern/g, 'replacement');
+
+// .search() - Returns index of first match or -1
+str.search(/pattern/);
+
+// .split() - Splits string on matches
+str.split(/pattern/);
+
+// RegExp methods
+let regex = /pattern/;
+
+// .test() - Returns true/false if pattern exists
+regex.test(str);
+
+// .exec() - Returns array with match details or null
+regex.exec(str);
+
+// String method with RegExp-like pattern matching
+// .matchAll() - Returns iterator of all matches (requires global flag)
+str.matchAll(/pattern/g);

@@ -1,0 +1,81 @@
+
+// String Methods Documentation and Examples
+
+// Length - returns the length of a string
+let str = "Hello";
+console.log(str.length); // 5
+
+// charAt() - returns character at specified index
+let char = "Hello".charAt(0); // Returns 'H'
+let char2 = "Hello"[0]; // Alternative syntax, returns 'H'
+
+// concat() - joins two or more strings
+let text1 = "Hello";
+let text2 = "World";
+let result = text1.concat(" ", text2); // "Hello World"
+
+// indexOf() - returns index of first occurrence of substring
+let pos = "Hello World".indexOf("World"); // Returns 6
+let notFound = "Hello".indexOf("z"); // Returns -1 if not found
+
+// lastIndexOf() - returns last occurrence of substring
+let lastPos = "Hello World World".lastIndexOf("World"); // Returns 12
+
+// includes() - checks if string contains substring
+let contains = "Hello World".includes("World"); // Returns true
+
+// startsWith() - checks if string starts with substring
+let starts = "Hello World".startsWith("Hello"); // Returns true
+
+// endsWith() - checks if string ends with substring
+let ends = "Hello World".endsWith("World"); // Returns true
+
+// slice() - extracts part of string
+let sliced = "Hello World".slice(0, 5); // Returns "Hello"
+let toEnd = "Hello World".slice(6); // Returns "World"
+
+// substring() - similar to slice but can't accept negative indices
+let sub = "Hello World".substring(0, 5); // Returns "Hello"
+
+// toLowerCase() - converts string to lowercase
+let lower = "Hello World".toLowerCase(); // "hello world"
+
+// toUpperCase() - converts string to uppercase
+let upper = "Hello World".toUpperCase(); // "HELLO WORLD"
+
+// trim() - removes whitespace from both ends
+let trimmed = "  Hello World  ".trim(); // "Hello World"
+
+// replace() - replaces first occurrence of substring
+let newStr = "Hello World".replace("World", "JavaScript"); // "Hello JavaScript"
+
+// replaceAll() - replaces all occurrences of substring
+let allReplaced = "Hello World World".replaceAll("World", "JS"); // "Hello JS JS"
+
+// split() - splits string into array based on delimiter
+let arr = "Hello,World".split(","); // ["Hello", "World"]
+
+// padStart() - pads start of string to reach specified length
+let padded = "5".padStart(3, "0"); // "005"
+
+// padEnd() - pads end of string to reach specified length
+let paddedEnd = "5".padEnd(3, "0"); // "500"
+
+// repeat() - repeats string specified number of times
+let repeated = "Ha".repeat(3); // "HaHaHa"
+
+// match() - returns array of matches based on regex
+let matches = "Hello World".match(/o/g); // ["o", "o"]
+
+// search() - returns index of first regex match
+let searchPos = "Hello World".search(/World/); // 6
+
+// Examples of chaining methods
+let example = "  Hello World  "
+  .trim()
+  .toUpperCase()
+  .replace("WORLD", "JAVASCRIPT"); // "HELLO JAVASCRIPT"
+
+// Template literals - string interpolation
+let name = "World";
+let greeting = `Hello ${name}`; // "Hello World"
