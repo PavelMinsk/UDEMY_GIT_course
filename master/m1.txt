@@ -1,5 +1,7 @@
 The `splice` method changes the contents of an array by removing or replacing existing elements and/or adding new elements in place. The method takes three parameters:
 
+Note: Unlike the `slice` method, the `splice` method does not support negative indices. If you pass a negative value for the `start` parameter, it will be treated as `array.length + start`.
+
 1. **start**: The index at which to start changing the array.
 2. **deleteCount**: The number of elements to remove from the array.
 3. **items** (optional): The elements to add to the array, starting from the `start` index.
